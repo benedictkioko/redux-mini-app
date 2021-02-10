@@ -1,21 +1,19 @@
 # Redux Mini App
 
-### `yarn start`
 
 Starts the development server.
-
-### `yarn build`
+### `yarn start`
 
 Bundles the app into static files for production.
-
-### `yarn test`
+### `yarn build`
 
 Starts the test runner.
+### `yarn test`
 
 The app runs on port:3000
 
 ```
-  cd redux-movie-app
+  cd redux-mini-app
 
   yarn start
 ```
