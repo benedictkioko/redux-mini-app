@@ -1,12 +1,30 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, compose, applyMiddleware } from "redux";
+
 import movielistReducer from "./reducers/movielistReducer";
-const reducer = combineReducers({ movies: movielistReducer });
+import userReducer from "./reducers/userReducer";
+import thunk from "redux-thunk";
+
+const middleware = [thunk];
+
+//Combining our reducers and change property names
+const allReducers = combineReducers({
+  movies: movielistReducer,
+  users: userReducer,
+});
+
+// initial state
 const initialState = {
-  movies: { name: "TERMINATOR 2" },
+  users: [],
+  movies: { name: "CREED II" },
 };
+
+//Create out store and set our reducers, state, and middleware.
 const store = createStore(
-  reducer,
+  allReducers,
   initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(
+    applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
 export default store;
