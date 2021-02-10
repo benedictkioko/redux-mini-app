@@ -1,4 +1,4 @@
-# Redux Movie App
+# Redux Mini App
 
 ### `yarn start`
 
